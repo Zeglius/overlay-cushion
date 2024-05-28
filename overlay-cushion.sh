@@ -41,7 +41,7 @@ function _umount() {
     set -x
     for SRC in "$@"; do
         if findmnt -t overlay "$SRC" >/dev/null; then
-            sudo umount -t overlay "$SRC"
+            sudo umount --lazy -t overlay "$SRC"
         fi
     done
 }
